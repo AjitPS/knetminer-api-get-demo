@@ -13,7 +13,7 @@ public class FetchKnetResponse {
 
 	public static void main(String[] args) throws IOException {
 		FetchKnetResponse knet= new FetchKnetResponse();
-                String KNET_URL = "http://babvs67:8081/ws/rice/genome";
+                String KNET_URL = "http://babvs67.rothamsted.ac.uk:8080/ws/arabidopsis/genome?keyword=drought&list=CAK4,AGL49,TPR2";
 		// e.g., use a url like this to test: KNET_URL= "http://babvs67.rothamsted.ac.uk:8081/ws/rice/genome?keyword=drought+OR+tolerance&list=ASR3,BADH1";
                 
                 knet.sendGET(KNET_URL); // http 'get' request
@@ -39,7 +39,7 @@ public class FetchKnetResponse {
 			StringBuilder response= new StringBuilder();
 
 			while ((inputLine = in.readLine()) != null) {
-                                inputLine= inputLine.split(",")[0].split(":")[1];
+                                inputLine= inputLine.split(",\"evidenceTable")[0].split("geneTable\":")[1];;
                                 inputLine= inputLine.replace("\"", "").replace("\\t", "\t").replace("\\n", "\n");
 				response.append(inputLine);
 			}
