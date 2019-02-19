@@ -13,8 +13,9 @@ public class FetchKnetResponse {
 
 	public static void main(String[] args) throws IOException {
 		FetchKnetResponse knet= new FetchKnetResponse();
-                String KNET_URL = "http://babvs67.rothamsted.ac.uk:8080/ws/arabidopsis/genome?keyword=drought&list=CAK4,AGL49,TPR2";
-		// e.g., use a url like this to test: KNET_URL= "http://babvs67.rothamsted.ac.uk:8081/ws/rice/genome?keyword=drought+OR+tolerance&list=ASR3,BADH1";
+                String KNET_URL = "http://babvs67.rothamsted.ac.uk:8080/ws/";
+		// e.g., add to KNET_URL mode & query like this to test: "rice/genome?keyword=drought+OR+tolerance&list=ASR3,BADH1";
+                // or "arabidopsis/genome?keyword=drought&list=CAK4,AGL49,TPR2";
                 
                 knet.sendGET(KNET_URL); // http 'get' request
                 
